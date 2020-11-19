@@ -1,0 +1,3 @@
+firebase
+데이터베이스 : project-d8544
+비밀번호 : J6tZw5IOqTRSaK3okCriDqHYvi0x9wwuASV6mDX3
