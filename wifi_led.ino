@@ -28,11 +28,11 @@ void setup() {
   Serial.println("");
   Serial.println("WiFi connected");
  
-  // Start the server
+  // 서버 시작
   server.begin();
   Serial.println("Server started");
  
-  // Print the IP address
+  // IP주소 출력
   Serial.print("Use this URL to connect: ");
   Serial.print("http://");
   Serial.print(WiFi.localIP());
@@ -41,24 +41,23 @@ void setup() {
 }
  
 void loop() {
-  // Check if a client has connected
+  // 연결되었는지 확인
   WiFiClient client = server.available();
   if (!client) {
     return;
   }
  
-  // Wait until the client sends some data
+  // 클라이언트가 데이터 전송까지 대기
   Serial.println("new client");
   while(!client.available()){
     delay(1);
   }
  
-  // Read the first line of the request
+  // 첫줄읽기
   String request = client.readStringUntil('\r');
   Serial.println(request);
   client.flush();
  
-  // Match the request
  
   int value = LOW;
   if (request.indexOf("/LED=ON") != -1)  {
@@ -70,10 +69,9 @@ void loop() {
     value = LOW;
   }
  
-// Set ledPin according to the request
-//digitalWrite(ledPin, value);
+
  
-  // Return the response
+  // 반응을 리턴
   client.println("HTTP/1.1 200 OK");
   client.println("Content-Type: text/html");
   client.println(""); //  do not forget this one
