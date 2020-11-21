@@ -70,16 +70,16 @@ while (True):
     if ('OFF' in switch):
         if (float(rainint) < 10):
             print('현재 비가 안옵니다.')
-            status = '0'
+            status = 0
         if (sunint < 6):
             print('현재 자외선지수가 낮습니다.')
-            status = '0'
+            status = 0
         if (float(rainint) >= 10):
             print('현재 비가 옵니다.')
-            status = '1'
+            status = 1
         if (sunint >= 6):
             print('현재 자외선지수가 높습니다.')
-            status = '1'
+            status = 1
         ref.update({'value': status})
         print('자동개폐모드')
 
